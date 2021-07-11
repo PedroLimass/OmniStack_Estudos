@@ -18,6 +18,7 @@ module.exports = {
 
         await sharp(req.file.path)
             .resize(500)
+            .withMetadata()
             .jpeg({ quality: 70 })
             .toFile(
                 path.resolve(req.file.destination, 'resized', filename)
